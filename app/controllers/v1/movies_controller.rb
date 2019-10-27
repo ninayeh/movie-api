@@ -1,14 +1,32 @@
 class V1::MoviesController < ApplicationController
-  def index
-    api_url = ENV['REACT_APP_API_URL']
-    api_key = ENV['REACT_APP_API_KEY']
-    
+  
+  API_URL = ENV['REACT_APP_API_URL']
+  API_KEY = ENV['REACT_APP_API_KEY']
+  @@hello = "Hello!"
+  
+  def index 
     thepage = request.query_parameters['page']
-    # puts "thepage = #{thepage}"
 
-    response = HTTP.get("#{api_url}movie/popular?api_key=#{api_key}&language=en-US&page=#{thepage}").to_s
+    response = HTTP.get("#{API_URL}movie/popular?api_key=#{API_KEY}&language=en-US&page=#{thepage}").to_s
     parsed_response = JSON.parse(response)
     results = parsed_response
     render json: results
+  end
+
+  def show
+    movie_id = params[:id]
+    response = HTTP.get("#{API_URL}movie/#{movie_id}?api_key=#{API_KEY}&language=en-US").to_s
+    parsed_response = JSON.parse(response)
+
+    render json: parsed_response
+  end
+
+  def credit
+    movie_id = params[:id]
+    
+    response = HTTP.get("#{API_URL}movie/#{movie_id}/credits?api_key=#{API_KEY}&language=en-US").to_s
+    parsed_response = JSON.parse(response)
+
+    render json: parsed_response
   end
 end
