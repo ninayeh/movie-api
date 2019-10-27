@@ -4,9 +4,5 @@ Rails.application.routes.draw do
   namespace :v1  do
     get 'movies', to: 'movies#index', :format => "json"
     get 'search', to: 'search#index', :format => "json"
-    get 'images', to: 'images#index', :format => "html"
-
-    
-  
   end
 end
