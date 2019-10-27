@@ -1,24 +1,11 @@
-# README
+# Movie API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Ruby on rails interface to the TMDB API.
 
-Things you may want to cover:
+# List of content
 
-* Ruby version
+- GET /movies
+- GET /movies/:id
+- GET /movies/:id/credit
+- GET /search
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

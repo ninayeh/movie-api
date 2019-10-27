@@ -2,7 +2,6 @@ class V1::MoviesController < ApplicationController
   
   API_URL = ENV['REACT_APP_API_URL']
   API_KEY = ENV['REACT_APP_API_KEY']
-  @@hello = "Hello!"
   
   def index 
     thepage = request.query_parameters['page']
